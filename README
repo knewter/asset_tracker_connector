@@ -1,0 +1,17 @@
+asset_tracker_connector
+=======================
+
+This is a gem to connect to an instance of the Isotope11 asset tracker and interact with its API.
+
+It works like this:
+
+  ruby-1.9.2-head > url = 'http://localhost:3000/'
+   => "http://localhost:3000/" 
+  ruby-1.9.2-head > c=AssetTrackerIntegrator.new url
+   => #<AssetTrackerIntegrator:0x9a63ed0 @last_result=nil> 
+  ruby-1.9.2-head > c.clients
+   => [#<AssetTrackerConnector::Client guid=nil, name="Test client", status=nil>, #<AssetTrackerConnector::Client guid="4ac1c530-9a80-012d-c01a-001f16a02b55", name="foo234", status="Good">] 
+  ruby-1.9.2-head > c.client('4ac1c530-9a80-012d-c01a-001f16a02b55')
+   => #<AssetTrackerConnector::Client guid="4ac1c530-9a80-012d-c01a-001f16a02b55", name="foo234", status="Good"> 
+
+It depends on the 'httparty' gem.
